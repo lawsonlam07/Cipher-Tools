@@ -69,7 +69,7 @@ function setup() {
 }
 
 function draw() {
-  clear()
+  clear();
   textSize(windowWidth/75);
   barWidth = windowWidth/79;
   maxBarHeight = windowHeight*(85/Math.max(15, (Number.isNaN(Math.max(...percentages)) && 0.0001 || Math.max(...percentages))));
