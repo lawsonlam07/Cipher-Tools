@@ -53,7 +53,8 @@ function drawLines() {
   line(0, windowHeight*(9/10), windowWidth, windowHeight*(9/10));
   for (let i = 10; i <= 110; i += 10) {
     stroke(0, 50);
-    line(0, windowHeight*(9/10) - (maxBarHeight*(i/100)), windowWidth, windowHeight*(9/10) - (maxBarHeight*(i/100)));
+		let yPos = windowHeight*(9/10) - (maxBarHeight*(i/100))
+    line(0, yPos, windowWidth, yPos);
     stroke(0, 0);
     text(i + "%", 0, windowHeight*(9/10) - (maxBarHeight*(i/100)));
   }
@@ -69,7 +70,8 @@ function draw() {
   createCanvas(windowWidth, windowHeight-10);
   textSize(windowWidth/75);
   barWidth = windowWidth/79;
-  maxBarHeight = windowHeight*(85/Math.max(15, (Number.isNaN(Math.max(...percentages)) && 1 || Math.max(...percentages))));
+	let maxPercent = Number.isNaN(Math.max(...percentages)) && 1 || Math.max(...percentages)
+  maxBarHeight = windowHeight*(85/Math.max(15, maxPercent));
 
   updateCipher();
   drawBars();
