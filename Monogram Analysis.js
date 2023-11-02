@@ -27,7 +27,7 @@ function drawBars() {
 function getMousePos(x, y) {
   let letter = Math.floor(x/(windowWidth/26));
   let percent = Number.isNaN(percentages[letter]) && "0" || percentages[letter];
-  let info = String.fromCharCode(letter+65) + ": " + occurences[letter] + "\n" + percent + "%\n(" + distribution[letter] + "%)";
+  let info = `${String.fromCharCode(letter+65)}: ${occurences[letter]}\n${percent}%\n(${distribution[letter]}%)`;
   fill(100, 50);
   rect(letter*(windowWidth/26), -5, windowWidth/26, windowHeight);
   fill(25);
