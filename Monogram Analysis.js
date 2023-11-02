@@ -10,9 +10,9 @@ function drawBars() {
   for (let i = 0; i < 79; i++) {
     if (i % 3 !== 0) {
       fill((i - 1) % 3 == 0 && [150, 75, 255] || [255, 170, 0]);
-      let scaleFactor = ((i - 1) % 3 == 0 && (percentages[(i-1)/3]/100) || (distribution[(i-2)/3]/100));
-      if (!Number.isNaN(scaleFactor)) {
-        rect(i * barWidth, windowHeight*(9/10), barWidth, -(maxBarHeight * scaleFactor));
+      let scaling = ((i - 1) % 3 == 0 && (percentages[(i-1)/3]/100) || (distribution[(i-2)/3]/100));
+      if (!Number.isNaN(scaling)) {
+        rect(i * barWidth, windowHeight*(9/10), barWidth, -(maxBarHeight * scaling));
       }
     }
   }
