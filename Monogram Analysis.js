@@ -38,7 +38,6 @@ function updateCipher() {
   ciphertext = (input.value()).toUpperCase();
   occurences = new Array(26).fill(0);
   percentages = [];
-
   for (let char of ciphertext) {
     occurences[char.charCodeAt(0) - 65] += 1;
   }
@@ -63,6 +62,7 @@ function drawLines() {
 function setup() {
   background(255);
   input = createInput();
+  input.size(windowWidth*(97.5/100));
   input.position(windowHeight/100, windowHeight/100);
 }
 
