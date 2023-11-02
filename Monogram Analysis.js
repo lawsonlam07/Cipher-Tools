@@ -60,15 +60,13 @@ function drawLines() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight-10);
   background(255);
-
   input = createInput();
-  input.position(windowWidth * (1/26), windowHeight/100);
+  input.position(windowHeight/100, windowHeight/100);
 }
 
 function draw() {
-  clear();
+  createCanvas(windowWidth, windowHeight-10);
   textSize(windowWidth/75);
   barWidth = windowWidth/79;
   maxBarHeight = windowHeight*(85/Math.max(15, (Number.isNaN(Math.max(...percentages)) && 1 || Math.max(...percentages))));
