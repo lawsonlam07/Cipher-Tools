@@ -56,7 +56,7 @@ function drawLines() {
     let yPos = windowHeight*(9/10) - (maxBarHeight*(i/100));
     line(0, yPos, windowWidth, yPos);
     stroke(0, 0);
-    text(i + "%", 0, windowHeight*(9/10) - (maxBarHeight*(i/100)));
+    text(i + "%", 0, yPos);
   }
 }
 
