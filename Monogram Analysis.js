@@ -26,7 +26,8 @@ function drawBars() {
 
 function getMousePos(x, y) {
   let letter = Math.floor(x/(windowWidth/26));
-  let info = String.fromCharCode(letter+65) + ": " + occurences[letter] + "\n" + (Number.isNaN(percentages[letter]) && "0" || percentages[letter]) + "%\n(" + distribution[letter] + "%)";
+  let percent = Number.isNaN(percentages[letter]) && "0" || percentages[letter];
+  let info = String.fromCharCode(letter+65) + ": " + occurences[letter] + "\n" + percent + "%\n(" + distribution[letter] + "%)";
   fill(100, 50);
   rect(letter*(windowWidth/26), -5, windowWidth/26, windowHeight);
   fill(25);
@@ -70,7 +71,7 @@ function draw() {
   clear();
   textSize(windowWidth/75);
   barWidth = windowWidth/79;
-  maxBarHeight = windowHeight*(85/Math.max(15, (Number.isNaN(Math.max(...percentages)) && 0.0001 || Math.max(...percentages))));
+  maxBarHeight = windowHeight*(85/Math.max(15, (Number.isNaN(Math.max(...percentages)) && 1 || Math.max(...percentages))));
 
   updateCipher();
   drawBars();
