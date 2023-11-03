@@ -62,7 +62,7 @@ function drawLines() {
 function setup() {
   background(255);
   input = createInput();
-  input.size(windowWidth*(97.5/100));
+  input.size(windowWidth*(98/100));
   input.position(windowHeight/100, windowHeight/100);
 }
 
