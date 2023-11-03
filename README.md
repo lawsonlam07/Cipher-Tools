@@ -12,5 +12,5 @@ Yellow bars represent the normal distribution of the letters, and the purple one
 
 A tool that can be used to decrypt Caesar Ciphers. It works best with longer inputs, and uses monogram analysis to pick the right shift. The input box is in the top left, the result is shown on the right of the screen, press "Copy" to copy the plaintext.
 
-### Transposition Cipher Decoder
+### Permutation Cipher Decoder
 > In progress!!!!!!
