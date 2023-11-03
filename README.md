@@ -15,4 +15,4 @@ A tool that can be used to decrypt Caesar Ciphers. It works best with longer inp
 ### Permutation Cipher Decoder
 > In progress!!!!!!
 
-A tool to decrypt transposition/permutation ciphers. It uses trigram analysis to find the key, to decrypt the ciphertext.
+A tool to decrypt transposition/permutation ciphers. It uses trigram analysis to find the key, which is then used to decrypt the ciphertext.
