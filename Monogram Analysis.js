@@ -1,4 +1,4 @@
-occurences = new Array(26).fill(0);
+occurences = Array(26).fill(0);
 percentages = [];
 const distribution = [
   8.55, 1.60, 3.16, 3.87, 12.10, 2.18, 2.09, 4.96, 7.33, 0.22, 0.81, 4.21, 2.53,
