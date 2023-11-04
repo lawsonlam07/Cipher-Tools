@@ -29,16 +29,15 @@ function leftButton() {
 
 function stats() {
   occurences = Array(26).fill(0);
-  for (let i = 0; i < ciphertext.length; i++) {
+  for (let i = 0; i < cipherLen; i++) {
     let char = ciphertext[i];
     if (65 <= char.charCodeAt(0) && char.charCodeAt(0) <= 90) {
       occurences[char.charCodeAt(0) - 65] += 1;
     }
   }
   percentages = [];
-  for (let i = 0; i < occurences.length; i++) {
-    let num = occurences[i];
-    percentages.push(parseFloat((num / ciphertext.length * 100).toFixed(2)));
+  for (let i = 0; i < 26; i++) {
+    percentages.push(parseFloat((occurences[i] / cipherLen * 100).toFixed(2)));
   }
 }
 
@@ -46,7 +45,7 @@ function fitness() {
   difference = [];
   for (let _ = 0; _ < 26; _++) {
     let total = 0;
-    for (let i = 0; i < percentages.length; i++) {
+    for (let i = 0; i < 26; i++) {
       total += Math.abs(percentages[i] - distribution[i]);
     }
     percentages.push(percentages.shift());
@@ -84,7 +83,6 @@ function drawUI() {
   textSize(windowHeight/57.5);
   text(buttons.input.value().toUpperCase(), windowWidth*(1/40), windowHeight*(1/5), windowWidth*(18/40), windowHeight*(4.5/7));
   text(plaintext.join(""), windowWidth*(21/40), windowHeight*(1/5), windowWidth*(18/40), windowHeight*(4.5/7));
-  ciphertext = buttons.input.value().toUpperCase();
 }
 
 function solveCipher() {
@@ -150,6 +148,8 @@ function draw() {
       buttons[v].style("border-radius", "10px");
     }
   }	
+  ciphertext = buttons.input.value().toUpperCase();
+  cipherLen = ciphertext.length;
   drawUI();
   shift(shiftNo);
 }
