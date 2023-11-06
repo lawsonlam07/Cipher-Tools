@@ -6,25 +6,19 @@ let plaintext = [];
 let shiftNo = 0
 
 function updateShiftNo(sign) {
-  if (sign) {
-    shiftNo++;
-    if (shiftNo > 25) {
-      shiftNo = 0;
-    }
-  } else {
-    shiftNo--;
-    if (shiftNo < 0) {
-      shiftNo = 25;
-    }
+  shiftNo += sign
+  switch (shiftNo) {
+    case 26: shiftNo = 0; break;
+    case -1: shiftNo = 25; break;
   }
 }
 
 function rightButton() {
-  updateShiftNo(true)
+  updateShiftNo(1)
 }
 
 function leftButton() {
-  updateShiftNo(false)
+  updateShiftNo(-1)
 }
 
 function stats() {
@@ -81,8 +75,9 @@ function drawUI() {
   line(0, 35, windowWidth, 35);
   line(windowWidth/2, 35, windowWidth/2, windowHeight*(5/6));
   textSize(windowHeight/57.5);
-  text(buttons.input.value().toUpperCase(), windowWidth/40, windowHeight*0.2, windowWidth*(9/20), windowHeight*(9/14));
-  text(plaintext.join(""), windowWidth*(21/40), windowHeight*0.2, windowWidth*(9/20), windowHeight*(9/14));
+  let textLength = windowWidth*(9/20), textWidth = windowHeight*(9/14);
+  text(buttons.input.value().toUpperCase(), windowWidth/40, windowHeight*(1/5), textLength, textWidth);
+  text(plaintext.join(""), windowWidth*(21/40), windowHeight*(1/5), textLength, textWidth);
 }
 
 function solveCipher() {
@@ -102,8 +97,8 @@ function copyPlaintext() {
 function keyPressed() {
   switch (keyCode) {
     case ENTER: copyPlaintext(); break;
-    case LEFT_ARROW: updateShiftNo(false); break;
-    case RIGHT_ARROW: updateShiftNo(true); break;
+    case LEFT_ARROW: updateShiftNo(-1); break;
+    case RIGHT_ARROW: updateShiftNo(1); break;
     case 32: solveCipher(); break;
   }
 }
