@@ -81,8 +81,8 @@ function drawUI() {
   line(0, 35, windowWidth, 35);
   line(windowWidth/2, 35, windowWidth/2, windowHeight*(5/6));
   textSize(windowHeight/57.5);
-  text(buttons.input.value().toUpperCase(), windowWidth*(1/40), windowHeight*(1/5), windowWidth*(18/40), windowHeight*(4.5/7));
-  text(plaintext.join(""), windowWidth*(21/40), windowHeight*(1/5), windowWidth*(18/40), windowHeight*(4.5/7));
+  text(buttons.input.value().toUpperCase(), windowWidth/40, windowHeight*0.2, windowWidth*(9/20), windowHeight*(4.5/7));
+  text(plaintext.join(""), windowWidth*(21/40), windowHeight*0.2, windowWidth*(9/20), windowHeight*(4.5/7));
 }
 
 function solveCipher() {
