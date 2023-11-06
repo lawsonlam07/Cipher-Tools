@@ -1,4 +1,4 @@
-"trigrams": {
+const trigrams = {
   "THE":77534223,
   "AND":30997177,
   "ING":30679488,
