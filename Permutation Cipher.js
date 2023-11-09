@@ -13,10 +13,19 @@ function draw() {
 	console.log(plaintext);
 }
 /* I wrote some python code that I will base the JS code off of.
-from trigrams import trigrams
-from itertools import permutations
-
 weights = []
+perms = []
+choices = [i for i in range(5)]
+def permutations(n, lim, used):
+  for v in choices:
+    while len(used) != n:
+      used.pop(-1)
+    if v not in used:
+      used.append(v)
+      if n + 1 == lim:
+        perms.append(used.copy())
+      else:
+        permutations(n + 1, lim, used)
 
 def plaintext(key):
   ans = []
@@ -32,8 +41,8 @@ def fitness(key):
     total += trigrams[ans[i:i+3]]
   weights.append(total)
 
-perms = []
-for v in permutations([i for i in range(5)], 5):
+permutations(0, 5, [])
+for v in perms:
   perms.append(v)
   fitness(v)
 
