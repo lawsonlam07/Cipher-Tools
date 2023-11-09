@@ -43,7 +43,6 @@ def fitness(key):
 
 permutations(0, 5, [])
 for v in perms:
-  perms.append(v)
   fitness(v)
 
 shift = weights.index(max(weights))
