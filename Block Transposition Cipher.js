@@ -1,50 +1,116 @@
 //This solver requires "trigrams.js" to analyse and give values to each trigram.
+function permutations(n, lim, used) {
+  for (let v of choices) {
+    while (used.length !== n) {
+      used.pop();
+    }
+    if (!used.includes(v)) {
+      used.push(v);
+      if (n + 1 === lim) {
+        perms.push([...used]);
+      } else {
+        permutations(n + 1, lim, used);
+      }
+    }
+  }
+}
+
+function plaintext(key) {
+  let ans = [];
+  for (let v of ciphertext) {
+    for (let i of key) {
+      ans.push(v[i]);
+    }
+  }
+  return ans.join("");
+}
+
+function fitness(key) {
+  let total = 0;
+  let ans = plaintext(key);
+  for (let i = 0; i < ans.length - 2; i++) {
+    total += trigrams[ans.slice(i, i + 3)];
+  }
+  weights.push(total);
+}
+
+function solve() {
+	perms = [];
+	weights = [];
+	choices = Array.from({length: 5}, (_, i) => i);
+	permutations(0, 5, []);
+	for (let v of perms) {
+		fitness(v);
+	}
+	let shift = weights.indexOf(Math.max(...weights));
+	buttons.key.value(perms[shift]);
+	solution = plaintext(buttons.key.value());
+}
+
+function drawUI() {
+	fill(200);
+	stroke(200);
+	rect(windowWidth*(3/4), 0, windowWidth/4, windowHeight);
+	fill(50, 100);
+	rect(windowWidth/100, windowHeight/50+20, windowWidth*(72/100), windowHeight*(46/50)-20, 10);
+	stroke(0, 0);
+	fill(200);
+	text(solution, windowWidth/100+5, windowHeight/50+25, windowWidth*(72/100)-10, windowHeight*(46/50) - 5);
+}
+
+function copyPlaintext() {
+  let decrypt = document.createElement("textarea");
+  document.body.appendChild(decrypt);
+  decrypt.value = solution;
+  decrypt.select();
+  document.execCommand("copy");
+  decrypt.remove();
+}
+
+function keyPressed() {
+	switch (keyCode) {
+		case 32: solve(); break;
+	}
+}
+
 function setup() {
-	input = createInput();
+	textWrap(CHAR);
 	background(100);
-	console.log(trigrams["JQZ"]);
+	solution = "";
+	buttons = {
+		input: createInput(),
+		key: createInput(),
+		copy: createButton("Copy"),
+		auto: createButton("Auto-Solve")
+	}
+	buttons.input.value("ETOBO TRTON TOHEB SATIT UHEQE OSNIT");
+	buttons.key.value("Enter a key:");
+	buttons.auto.mousePressed(solve);
+	buttons.copy.mousePressed(copyPlaintext);
 }
 
 function draw() {
+	positions = {
+		input: [windowWidth/100, windowHeight/100],
+		key: [windowWidth*(77/100), windowHeight/25],
+		copy: [windowWidth*(77/100), windowHeight*(4/6)],
+		auto: [windowWidth*(77/100), windowHeight*(5/6)]
+	}
+	sizes = {
+		input: [windowWidth*(73/100), 20],
+		key: [windowWidth*(21/100), windowHeight*(1/7)],
+		copy: [windowWidth*(21/100), windowHeight*(1/7)],
+		auto: [windowWidth*(21/100), windowHeight*(1/7)]
+	}
+	for (let v in buttons) {
+		buttons[v].position(positions[v][0], positions[v][1]);
+		buttons[v].size(sizes[v][0], sizes[v][1]);
+		if (v != "input") {
+			buttons[v].style("font-size", `${windowHeight/13.8}px`);
+			buttons[v].style("border-radius", "10px");
+		}
+	}	
 	createCanvas(windowWidth-20, windowHeight-20);
-	input.position(windowWidth/100, windowWidth/100);
-	input.size(windowWidth*(97/100));
-	let plaintext = input.value().split(" ");
-	console.log(plaintext);
+	drawUI();
+	ciphertext = buttons.input.value().split(" ");
 }
-/* I wrote some python code that I will base the JS code off of.
-weights = []
-perms = []
-choices = [i for i in range(5)]
-def permutations(n, lim, used):
-  for v in choices:
-    while len(used) != n:
-      used.pop(-1)
-    if v not in used:
-      used.append(v)
-      if n + 1 == lim:
-        perms.append(used.copy())
-      else:
-        permutations(n + 1, lim, used)
-
-def plaintext(key):
-  ans = []
-  for v in text:
-    for i in key:
-      ans.append(v[i])
-  return "".join(ans)
-
-def fitness(key):
-  total = 0
-  ans = plaintext(key)
-  for i in range(len(ans)-2):
-    total += trigrams[ans[i:i+3]]
-  weights.append(total)
-
-permutations(0, 5, [])
-for v in perms:
-  fitness(v)
-
-shift = weights.index(max(weights))
-print(plaintext(perms[shift]))
-*/
