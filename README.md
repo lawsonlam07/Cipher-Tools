@@ -7,6 +7,9 @@ All the tools on here are hosted on openprocessing, and are written with p5js.
 
 Yellow bars represent the normal distribution of the letters, and the purple ones represents the distribution of the letters that you input. The input box is in the top of the screen.
 
+### [Morse Code Converter:](https://openprocessing.org/sketch/2083491)
+> In progress!
+
 ### [Caesar Cipher Decoder:](https://openprocessing.org/sketch/2044449)
 > https://openprocessing.org/sketch/2044449
 
