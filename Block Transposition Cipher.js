@@ -53,7 +53,7 @@ function drawUI() {
   rect(windowWidth/100, windowHeight/50+20, windowWidth*(72/100), windowHeight*(46/50)-20, 10);
   stroke(0, 0);
   fill(200);
-  text(solution, windowWidth/100+5, windowHeight/50+25, windowWidth*(72/100)-10, windowHeight*(46/50)-5);
+  text(solution, windowWidth/100+5, windowHeight/50+25, windowWidth*0.72-10, windowHeight*0.92-5);
   fill(0);
   textSize(windowHeight/13.8);
   text("Text Size:", windowWidth*(76/100), windowHeight*(1.75/6))
