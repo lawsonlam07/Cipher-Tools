@@ -35,27 +35,28 @@ function fitness(key) {
 }
 
 function solve() {
-	perms = [];
-	weights = [];
-	choices = Array.from({length: 5}, (_, i) => i);
-	permutations(0, 5, []);
-	for (let v of perms) {
-		fitness(v);
-	}
-	let shift = weights.indexOf(Math.max(...weights));
-	buttons.key.value(perms[shift]);
-	solution = plaintext(buttons.key.value());
+  perms = []; weights = [];
+  choices = Array.from({length: ciphertext[0].length}, (_, i) => i);
+  permutations(0, ciphertext[0].length, []);
+  for (let v of perms) {
+    fitness(v);
+  }
+  let shift = weights.indexOf(Math.max(...weights));
+  buttons.key.value(perms[shift]);
 }
 
 function drawUI() {
-	fill(200);
-	stroke(200);
-	rect(windowWidth*(3/4), 0, windowWidth/4, windowHeight);
-	fill(50, 100);
-	rect(windowWidth/100, windowHeight/50+20, windowWidth*(72/100), windowHeight*(46/50)-20, 10);
-	stroke(0, 0);
-	fill(200);
-	text(solution, windowWidth/100+5, windowHeight/50+25, windowWidth*(72/100)-10, windowHeight*(46/50) - 5);
+  fill(200);
+  stroke(200);
+  rect(windowWidth*(3/4), 0, windowWidth/4, windowHeight);
+  fill(50, 100);
+  rect(windowWidth/100, windowHeight/50+20, windowWidth*(72/100), windowHeight*(46/50)-20, 10);
+  stroke(0, 0);
+  fill(200);
+  text(solution, windowWidth/100+5, windowHeight/50+25, windowWidth*(72/100)-10, windowHeight*(46/50) - 5);
+  fill(0);
+  textSize(windowHeight/13.8);
+  text("Text Size:", windowWidth*(76/100), windowHeight*(1.75/6))
 }
 
 function copyPlaintext() {
@@ -68,49 +69,53 @@ function copyPlaintext() {
 }
 
 function keyPressed() {
-	switch (keyCode) {
-		case 32: solve(); break;
-	}
+  switch (keyCode) {
+    case 32: solve(); break;
+    case ENTER: copyPlaintext(); break;
+  }
 }
 
 function setup() {
-	textWrap(CHAR);
-	background(100);
-	solution = "";
-	buttons = {
-		input: createInput(),
-		key: createInput(),
-		copy: createButton("Copy"),
-		auto: createButton("Auto-Solve")
-	}
-	buttons.input.value("ETOBO TRTON TOHEB SATIT UHEQE OSNIT");
-	buttons.key.value("Enter a key:");
-	buttons.auto.mousePressed(solve);
-	buttons.copy.mousePressed(copyPlaintext);
+  textWrap(CHAR);
+  background(100);
+  solution = "";
+  buttons = {
+    input: createInput(sample),
+    key: createInput(" Enter a key:"),
+    size: createInput("30"),
+    copy: createButton("Copy"),
+    auto: createButton("Auto-Solve")
+  }
+  buttons.auto.mousePressed();
+  buttons.copy.mousePressed(copyPlaintext);
 }
 
 function draw() {
-	positions = {
-		input: [windowWidth/100, windowHeight/100],
-		key: [windowWidth*(77/100), windowHeight/25],
-		copy: [windowWidth*(77/100), windowHeight*(4/6)],
-		auto: [windowWidth*(77/100), windowHeight*(5/6)]
-	}
-	sizes = {
-		input: [windowWidth*(73/100), 20],
-		key: [windowWidth*(21/100), windowHeight*(1/7)],
-		copy: [windowWidth*(21/100), windowHeight*(1/7)],
-		auto: [windowWidth*(21/100), windowHeight*(1/7)]
-	}
-	for (let v in buttons) {
-		buttons[v].position(positions[v][0], positions[v][1]);
-		buttons[v].size(sizes[v][0], sizes[v][1]);
-		if (v != "input") {
-			buttons[v].style("font-size", `${windowHeight/13.8}px`);
-			buttons[v].style("border-radius", "10px");
-		}
-	}	
-	createCanvas(windowWidth-20, windowHeight-20);
-	drawUI();
-	ciphertext = buttons.input.value().split(" ");
+  positions = {
+    input: [windowWidth/100, windowHeight/100],
+    key: [windowWidth*(77/100), windowHeight/25],
+    size: [windowWidth - windowHeight*(1/5), windowHeight*(1.25/6)],
+    copy: [windowWidth*(77/100), windowHeight*(4/6)],
+    auto: [windowWidth*(77/100), windowHeight*(5/6)]
+  }
+  sizes = {
+    input: [windowWidth*(73/100), 20],
+    key: [windowWidth*(21/100), windowHeight*(1/7)],
+    size: [windowHeight*(1/7), windowHeight*(1/7)],
+    copy: [windowWidth*(21/100), windowHeight*(1/7)],
+    auto: [windowWidth*(21/100), windowHeight*(1/7)]
+  }
+  for (let v in buttons) {
+    buttons[v].position(positions[v][0], positions[v][1]);
+    buttons[v].size(sizes[v][0], sizes[v][1]);
+    if (v != "input") {
+      buttons[v].style("font-size", `${windowHeight/13.8}px`);
+      buttons[v].style("border-radius", "10px");
+    }
+  }	
+  createCanvas(windowWidth-20, windowHeight-20);
+  textSize(Number(buttons.size.value()));
+  drawUI();
+  ciphertext = buttons.input.value().toUpperCase().split(" ");
+  solution = plaintext(buttons.key.value());
 }
