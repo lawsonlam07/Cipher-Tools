@@ -18,4 +18,4 @@ A tool that can be used to decrypt Caesar Ciphers. It works best with longer inp
 ### [Block Transposition Cipher Decoder:](https://openprocessing.org/sketch/2074779)
 > https://openprocessing.org/sketch/2074779
 
-A tool to decrypt simple permutation/transposition ciphers. It uses trigram analysis to choose the right key, which is then used to decrypt the ciphertext. Note that only letters A-Z are allowed, and should be split into blocks of the same length, seperated by a space. When entering a custom key, each number should be seperated by a comma, and nothing more. Again, the hotkeys are: arrows to change the shift amount, space to auto-solve & enter to copy result.
+A tool to decrypt simple permutation/transposition ciphers. It uses trigram analysis to choose the right key, which is then used to decrypt the ciphertext. Note that only letters A-Z are allowed, and should be split into blocks of the same length, separated by a space. When entering a custom key, each number should be separated by a comma, and nothing more. Again, the hotkeys are: arrows to change the shift amount, space to auto-solve & enter to copy result.
