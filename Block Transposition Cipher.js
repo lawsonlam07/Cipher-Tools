@@ -1,5 +1,5 @@
 //This solver requires "trigrams.js" to analyse and give values to each trigram.
-function permutations(n, lim, used) {
+function permutations(lim, n = 0, used = []) {
   for (let v of choices) {
     while (used.length !== n) {
       used.pop();
@@ -9,7 +9,7 @@ function permutations(n, lim, used) {
       if (n + 1 === lim) {
         perms.push([...used]);
       } else {
-        permutations(n + 1, lim, used);
+        permutations(lim, n + 1, used);
       }
     }
   }
@@ -37,7 +37,7 @@ function fitness(key) {
 function solve() {
   perms = []; weights = [];
   choices = Array.from({length: ciphertext[0].length}, (_, i) => i);
-  permutations(0, ciphertext[0].length, []);
+  permutations(ciphertext[0].length);
   for (let v of perms) {
     fitness(v);
   }
