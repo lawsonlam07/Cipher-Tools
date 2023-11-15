@@ -21,3 +21,6 @@ A tool that can be used to decrypt Caesar Ciphers. It works best with longer inp
 > https://openprocessing.org/sketch/2074779
 
 A tool to decrypt simple permutation/transposition ciphers. It uses trigram analysis to choose the right key, which is then used to decrypt the ciphertext. Note that only letters A-Z are allowed, and should be split into blocks of the same length, separated by a space. When entering a custom key, each number should be separated by a comma, and nothing more. Again, the hotkeys are: space to auto-solve & enter to copy result.
+
+### [Monoalphabetic Substitution Cipher Solver](https://openprocessing.org/sketch/2090613)
+> In progress!!!
