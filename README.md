@@ -8,7 +8,8 @@ All the tools on here are hosted on openprocessing, and are written with p5js.
 Yellow bars represent the normal distribution of the letters, and the purple ones represents the distribution of the letters that you input. The input box is in the top of the screen.
 
 ### [Morse Code Converter:](https://openprocessing.org/sketch/2083491)
-> In progress!
+> https://openprocessing.org/sketch/2083491
+This can be used to convert between Morse code and English. You can press enter to copy, and there is no hotkey for solve. You can edit either box, so conversion works both ways, as long as you put the right text in the right box.
 
 ### [Caesar Cipher Decoder:](https://openprocessing.org/sketch/2044449)
 > https://openprocessing.org/sketch/2044449
