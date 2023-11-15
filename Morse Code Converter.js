@@ -48,28 +48,25 @@ function plainChanged() {
 
 function solve() {
   if (mode) {
-    let initial = buttons.ciphertext.value().split(" ");
-    let end = [];
-    for (let v of initial) {
-      if (v in morse.toPlaintext) {
-        end.push(morse.toPlaintext[v]);
-      } else {
-        end.push(v);
-      }
-    }
-    buttons.plaintext.value(end.join(""));
+    joiner = ""
+    initial = buttons.ciphertext.value().split(" ");
+    toText = "toPlaintext"
+    result = "plaintext"
   } else {
-    let initial = Array.from(buttons.plaintext.value().toUpperCase());
-    let end = [];
-    for (let v of initial) {
-      if (v in morse.toCipher) {
-        end.push(morse.toCipher[v]);
-      } else {
-        end.push(v);
-      }
-    }
-    buttons.ciphertext.value(end.join(" "));
+    joiner = " "
+    initial = Array.from(buttons.plaintext.value().toUpperCase());
+    toText = "toCipher"
+    result = "ciphertext"
   }
+  let end = [];
+  for (let v of initial) {
+    if (v in morse[toText]) {
+      end.push(morse[toText][v]);
+    } else {
+      end.push(v);
+    }
+  }
+  buttons[result].value(end.join(joiner));
 }
 
 function copyText() {
