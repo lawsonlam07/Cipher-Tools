@@ -6,52 +6,52 @@ let limit = 10
 let n = 0;
 
 function fitness(arr) {
-	let total = 0;
-	for (let i = 0; i < arr.length - 2; i++) {
-		total += trigrams[arr.slice(i, i + 3).join("")];
-	}
-	return total;
+  let total = 0;
+  for (let i = 0; i < arr.length - 2; i++) {
+    total += trigrams[arr.slice(i, i + 3).join("")];
+  }
+  return total;
 }
 
 function findBest(arr) {
-	return arr[1].indexOf(Math.max(...arr[1]));
+  return arr[1].indexOf(Math.max(...arr[1]));
 }
 
 function step() {
-	let stability = 0;
-	while (stability !== 75) {
-		fitnessArr = [[], []];
-		let randChar = alpha[Math.floor(Math.random() * alpha.length)];
-		for (let char of alpha) {
-			let buffer = cipherTest.replaceAll(randChar, "-");
-			buffer = buffer.replaceAll(char, randChar);
-			buffer = buffer.replaceAll("-", char);
-			fitnessArr[0].push(buffer);
-			fitnessArr[1].push(fitness(buffer.split("")));
-		}
+  let stability = 0;
+  while (stability !== 75) {
+    fitnessArr = [[], []];
+    let randChar = alpha[Math.floor(Math.random() * alpha.length)];
+    for (let char of alpha) {
+      let buffer = cipherTest.replaceAll(randChar, "-");
+      buffer = buffer.replaceAll(char, randChar);
+      buffer = buffer.replaceAll("-", char);
+      fitnessArr[0].push(buffer);
+      fitnessArr[1].push(fitness(buffer.split("")));
+    }
 
-		best = findBest(fitnessArr);
-		if (fitnessArr[0][best] === cipherTest) {
-			stability += 1;
-		} else {
-			stability = 0;
-		}
+    best = findBest(fitnessArr);
+    if (fitnessArr[0][best] === cipherTest) {
+      stability += 1;
+    } else {
+      stability = 0;
+    }
 
-		cipherTest = fitnessArr[0][best];
-	}
-	return [cipherTest, fitnessArr[1][best]]
+    cipherTest = fitnessArr[0][best];
+  }
+  return [cipherTest, fitnessArr[1][best]]
 }
 
 function solve() {
-	let cipherFilter = Array.from(ciphertext).filter(v => alpha.includes(v)).join("");
-	
-	cipherTest = cipherFilter;
-	let possibility = step();
-	solutions[0].push(possibility[0]);
-	solutions[1].push(possibility[1]);
+  let cipherFilter = Array.from(ciphertext).filter(v => alpha.includes(v)).join("");
 
-	plaintext = solutions[0][findBest(solutions)];
-	console.log(plaintext);
+  cipherTest = cipherFilter;
+  let possibility = step();
+  solutions[0].push(possibility[0]);
+  solutions[1].push(possibility[1]);
+
+  plaintext = solutions[0][findBest(solutions)];
+  console.log(plaintext);
 }
 
 function copyPlaintext() {
@@ -64,7 +64,7 @@ function copyPlaintext() {
 }
 
 function setup() {
-	buttons = {
+  buttons = {
     input: createInput(),
     copy: createButton("Copy"),
     auto: createButton("Auto-Solve")
@@ -72,7 +72,7 @@ function setup() {
 }
 
 function draw() {
-	positions = {
+  positions = {
     input: [windowWidth/2, windowHeight/100],
     copy: [windowWidth/100, windowHeight*(4.1/6)],
     auto: [windowWidth/100, windowHeight*(5.1/6)]
@@ -82,7 +82,7 @@ function draw() {
     copy: [windowWidth*(30/100), windowHeight*(1/7)],
     auto: [windowWidth*(30/100), windowHeight*(1/7)]
   }
-	createCanvas(windowWidth-10, windowHeight-10);
+  createCanvas(windowWidth-10, windowHeight-10);
   for (let v in buttons) {
     buttons[v].position(positions[v][0], positions[v][1]);
     buttons[v].size(sizes[v][0], sizes[v][1]);
@@ -91,16 +91,16 @@ function draw() {
       buttons[v].style("border-radius", "10px");
     }
   }	
-	background(50);
-	fill(100);
-	let loading = [windowWidth/100, windowWidth/100, windowWidth*(3/10), windowHeight/10];
-	rect(...loading);
-	fill(158, 235, 52);
-	rect(loading[0]+5, loading[1]+5, (loading[2]-10)*(n/limit), loading[3]-10);
-	
-	if (n < limit) {
-		solve();
-		n++;
-	}
-	console.log(n)
+  background(50);
+  fill(100);
+  let loading = [windowWidth/100, windowWidth/100, windowWidth*(3/10), windowHeight/10];
+  rect(...loading);
+  fill(158, 235, 52);
+  rect(loading[0]+5, loading[1]+5, (loading[2]-10)*(n/limit), loading[3]-10);
+
+  if (n < limit) {
+    solve();
+    n++;
+  }
+  console.log(n)
 }
