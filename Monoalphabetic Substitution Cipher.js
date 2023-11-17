@@ -1,32 +1,55 @@
 // This solver also requires "Trigrams.js"
 
-/*
-Again, I wrote a draft in python first.
-def fitness(arr):
-  total = 0
-  for i in range(len(arr) - 2):
-    total += trigrams["".join(arr[i: i + 3])]
-  return total
+	function fitness(arr) {
+		let total = 0;
+		for (let i = 0; i < arr.length - 2; i++) {
+			total += trigrams[arr.slice(i, i + 3).join("")];
+		}
+		return total;
+	}
 
-cipherLen = len(ciphertext)
-cipherFilter = "".join([v for v in ciphertext if v in alpha])
-print()
+function findBest(arr) {
+	return arr[0][arr[1].indexOf(Math.max(...arr[1]))];
+}
 
-distribution = alpha.copy()
-random.shuffle(distribution)
+function setup() {
+	const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+	const ciphertext = "RDLLW NRDGA MVHLN ROSHJ WHVNR OJYGA OLNHG LOJHL NYVHP GCDGY COGNY SDBVY BOYGH PLDLS RYQOM IPNYN TDMDG YGNOL SOJNV LHFNR ONOBO ELDJR DGCRD CGNIO OGJYS AOCPJ IWNRO JHBYS OMHYN TDMGH NYGNR OVYBO MYRDC IHLLH TOCVL HFNRO FYVHB BHTOC PJHGN ROIHH AMRHJ BODCI PNCYC GNEON VDLDB NRHPE RSPLY HPMBW DBLOM VHLCR DMIOO GDJBD SOHVY GNOLO MNNHN ROYGN OBBYE OGSOM OLQYS OVHLD TRYBO NROYG VDFHP MJHLN BDGCM JWLYG EPMOC NROJP IBYSB DQDNH LWHQO LNROL HDCVL HFNRO BHSDB JHBYS OMNDN YHGNR OLODM DCODC CLHJT RYSRM OOFMQ OLWPG BYAOB WIPNY EPOMM NRDNT DMNRO JHYGN DGWTD WNRDN RDMGH NRYGE NHCHT YNRNR OSDMO TODLO YGQOM NYEDN YGERO LOYED NROLV LHFNR OVYBO MNRDN MHHGD VNOLF YMMMN WBOML OSOYQ OCNRO JYGAO LNHGL OJHLN MROTD MDIBO NHJOL MPDCO NROJH BYSON HLOHJ OGNRO SDMON ROWCH GNMOO FNHRD QOIOO GJDLN YSPBD LBWCY BYEOG NHLAO OGRDL JOLTL HNODF OFHSR DMNYM YGENR OFVHL NROYL BDSAH VJLHE LOMMJ OLRDJ MNHYF JLOMM RYMVL YOGCL HEOLM IPNNR OCONO SNYQO YGSRD LEOLO JBYOC TYNRD BHGEB YMNHV LODMH GMTRW NROSD MOTDM RHJOB OMMRD LJOLM CYDLW MRHTM NRDND JBDGG OCFOO NYGEN HCYMS PMMNR OSDMO TDMSD GSOBB OCMHH GDVNO LROLO SOYQO CNROL OJBWN ROTRH BONRY GETHP BCRDQ OIOOG OGNYL OBWVH LEHNN OGIWG HTYVF DYMYO RDCGH NTLYN NOGDE DYGNH NROJH BYSOS RYOVT YNRDG OUNLD HLCYG DLWSB DYFNR OOGSL WJNOC GHNON RDNCL TRYNO RDCVH PGCMO TGYGN HNROI YGCYG EHVNR OIHHA CYMJB DWOCM OQOLD BVODN PLOMN RDNMP EEOMN OCYNR DCIOO GTLYN NOGHG NRONW JOTLY NOLYG NROFD GMYHG YNMOB VNHFR DLJOL TDMMS OJNYS DBDMN RONWJ OVDSO DJJOD LOCNH IODMN DGCDL CPGCO LTHHC NWJYS DBHVR PGCLO CMHVN WJOTL YNOLM YGNRO MNDNO IPNYN TDMNL PONRD NNROB ONNOL ZMRHT OCDCY MNYGS NYQOC YJDGC NRDNN ROBON NOLDT DMFYM MYGEY NMPJJ OLMOL YVYGN ROGHN OIHNR VODNP LOMMO OGYGH NROLC HSPFO GNMNW JOCHG NRORH PMOFD SRYGO RDLJO LTDMS BODLB WCYMN PLIOC IWNRO CYMSH QOLWR YMCDY BWBHE GHNOC NROVY GCYGE MTYNR NROLO FDLAM YVNRO GHNOT DMTLY NNOGI WMHFO HGOYG NRORH PMORH BCNRO GCHOM NRDNF ODGNR DNNRO WTOLO YGBOD EPOTY NRYMB OMHLN RDNNR OWTOL OMHFO RHTYG QHBQO CTYNR RYFTR WCYCR OSRHH MONRD NJDLN YSPBD LIHHA ROMOG NDBON NOLNH LHEOL MDMAY GERYF YVROS HPBCD SSHPG NVHLN ROCYM SHQOL WDGCL OSOYQ OCNRO DNNDS ROCLO JBWTO SDGZP CEOZP MNRHT LDNNB OCLHE OLMVO BNIWN ROVDS NNRDN ROOGS LWJNO CYNPM YGEDQ YEOGO LOSYJ ROLRO SBODL BWCYC GHNTD GNNHN DAODS RDGSO NRDND GWHGO HNROL NRDGR DLJOL THPBC LODCY N".toUpperCase();
 
-while True:
-  fitnessArr = [[], []]
-  randChar = random.choice(alpha)
-  
-  for char in alpha:
-    buffer = cipherFilter.replace(randChar, "-")
-    buffer = buffer.replace(char, randChar)
-    buffer = buffer.replace("-", char)
-    
-    fitnessArr[0].append(buffer)
-    fitnessArr[1].append(fitness(list(buffer)))
+	let cipherLen = ciphertext.length;
+	let cipherFilter = ciphertext.split("").filter(v => alpha.includes(v)).join("");
+	let solutions = [[], []];
+	
+	
+	for (let i=0; i < 10; i++) {
+		let distribution = [...alpha];
+		distribution = shuffle(distribution);
+		let stability = 0;
+		while (stability !== 250) {
+			let fitnessArr = [[], []];
+			let randChar = alpha[Math.floor(Math.random() * alpha.length)];
+			for (let char of alpha) {
+				let buffer = cipherFilter.replaceAll(randChar, "-");
+				buffer = buffer.replaceAll(char, randChar);
+				buffer = buffer.replaceAll("-", char);
+				fitnessArr[0].push(buffer);
+				fitnessArr[1].push(fitness(buffer.split("")));
+			}
 
-  print(cipherFilter + "\n\n")
-  cipherFilter = fitnessArr[0][fitnessArr[1].index(max(fitnessArr[1]))]
-*/
+			let best = findBest(fitnessArr);
+			if (best === cipherFilter) {
+				stability += 1;
+			} else {
+				stability = 0;
+			}
+
+			cipherFilter = best;
+		}
+		solutions[0].push(cipherFilter);
+		solutions[1].push(fitness(cipherFilter.split("")));
+	}
+	console.log(findBest(solutions));
+}
+
+function draw() {
+}
