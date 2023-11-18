@@ -1,5 +1,5 @@
 const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-const randomQuotes = ["Making things up...", "Just solve it yourself...", "Deleting half of the text..."];
+const randomQuotes = ["Making things up...", "Just solve it yourself...", "Deleting the text..."];
 const quoteLen = randomQuotes.length;
 let plaintext = "";
 let size = 30;
