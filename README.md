@@ -22,7 +22,10 @@ A tool that can be used to decrypt Caesar Ciphers. It works best with longer inp
 
 A tool to decrypt simple permutation/transposition ciphers. It uses trigram analysis to choose the right key, which is then used to decrypt the ciphertext. It may be prudent to change the key length a couple of times to find the right answer. When entering a custom key, each number should be separated by a comma, and nothing more. Again, the hotkeys are: space to auto-solve & enter to copy result.
 
-### [Monoalphabetic Substitution Cipher Solver:](https://openprocessing.org/sketch/2090613)
+### [Substitution Cipher Solver:](https://openprocessing.org/sketch/2090613)
 > https://openprocessing.org/sketch/2090613
 
 You may use this to decrypt monoalphabetic substitution ciphers;  it may take multiple tries to get the right answer. It uses randomness to solve the cipher because it would be far too inefficient to search each combination. This means that sometimes the right solution may be skipped over. Increasing the number of iterations means it will take longer, but you will be left with a more accurate result. Hotkeys are: spacebar to solve & enter to copy.
+
+### Vigenére Cipher Solver:
+> In progress!
