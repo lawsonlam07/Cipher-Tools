@@ -124,7 +124,7 @@ function draw() {
   drawUI();
   ciphertext = Array.from(buttons.input.value().toUpperCase());
   ciphertext = ciphertext.filter(v => alpha.includes(v)).join("");
-  let re = new RegExp(".{1,"+Number(buttons.len.value())+"}", "g");
+  let re = new RegExp(".{1," + Number(Math.max(buttons.len.value(), 1)) + "}", "g");
   ciphertext = ciphertext.match(re);
   solution = plaintext(buttons.key.value());
 }
