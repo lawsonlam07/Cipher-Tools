@@ -1,3 +1,4 @@
+// This solver also requires "Trigrams.js" to evaluate each change made.
 const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 const randomQuotes = ["Making things up...", "Just solve it yourself...", "Deleting the text..."];
 const quoteLen = randomQuotes.length;
