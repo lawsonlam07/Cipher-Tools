@@ -1,5 +1,7 @@
 //This solver requires "trigrams.js" to analyse and give values to each trigram.
-function permutations(lim, n = 0, used = []) {
+const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+function permutations(lim, n=0, used=[]) {
   for (let v of choices) {
     while (used.length !== n) {
       used.pop();
@@ -36,8 +38,8 @@ function fitness(key) {
 
 function solve() {
   perms = []; weights = [];
-  choices = Array.from({length: ciphertext[0].length}, (_, i) => i);
-  permutations(ciphertext[0].length);
+  choices = Array.from({length: Number(buttons.len.value())}, (_, i) => i);
+  permutations(Number(buttons.len.value()));
   for (let v of perms) {
     fitness(v);
   }
@@ -57,6 +59,7 @@ function drawUI() {
   fill(0);
   textSize(windowHeight/13.8);
   text("Text Size:", windowWidth*(76/100), windowHeight*(1.75/6))
+  text("Key Len:", windowWidth*(76/100), windowHeight*(2.75/6))
 }
 
 function copyPlaintext() {
@@ -77,16 +80,16 @@ function keyPressed() {
 
 function setup() {
   textWrap(CHAR);
-  background(100);
   solution = "";
   buttons = {
-    input: createInput(sample),
+    input: createInput(),
     key: createInput(" Enter a key:"),
     size: createInput("30"),
+    len: createInput("5"),
     copy: createButton("Copy"),
     auto: createButton("Auto-Solve")
   }
-  buttons.auto.mousePressed();
+  buttons.auto.mousePressed(solve);
   buttons.copy.mousePressed(copyPlaintext);
 }
 
@@ -95,6 +98,7 @@ function draw() {
     input: [windowWidth/100, windowHeight/100],
     key: [windowWidth*(77/100), windowHeight/25],
     size: [windowWidth - windowHeight*(1/5), windowHeight*(1.25/6)],
+    len: [windowWidth - windowHeight*(1/5), windowHeight*(2.25/6)],
     copy: [windowWidth*(77/100), windowHeight*(4/6)],
     auto: [windowWidth*(77/100), windowHeight*(5/6)]
   }
@@ -102,6 +106,7 @@ function draw() {
     input: [windowWidth*(73/100), 20],
     key: [windowWidth*(21/100), windowHeight*(1/7)],
     size: [windowHeight*(1/7), windowHeight*(1/7)],
+    len: [windowHeight*(1/7), windowHeight*(1/7)],
     copy: [windowWidth*(21/100), windowHeight*(1/7)],
     auto: [windowWidth*(21/100), windowHeight*(1/7)]
   }
@@ -114,8 +119,12 @@ function draw() {
     }
   }	
   createCanvas(windowWidth-20, windowHeight-20);
+  background(100);
   textSize(Number(buttons.size.value()));
   drawUI();
-  ciphertext = buttons.input.value().toUpperCase().split(" ");
+  ciphertext = Array.from(buttons.input.value().toUpperCase());
+  ciphertext = ciphertext.filter(v => alpha.includes(v)).join("");
+  let re = new RegExp(".{1,"+Number(buttons.len.value())+"}", "g");
+  ciphertext = ciphertext.match(re);
   solution = plaintext(buttons.key.value());
 }
