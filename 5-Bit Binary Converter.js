@@ -94,5 +94,5 @@ function draw() {
   text("Ciphertext", 0, 0, windowWidth);
   text("Plaintext", 0, windowHeight*(11/12), windowWidth);
   textSize(windowHeight/10);
-  text("5-bit Binary Converter", 0, windowHeight*(5.175/12), windowWidth, windowHeight/7);
+  text("5-Bit Binary Converter", 0, windowHeight*(5.175/12), windowWidth, windowHeight/7);
 }
