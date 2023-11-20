@@ -47,7 +47,7 @@ function step() {
 
 function solve() {
   cipherFilter = Array.from(buttons.input.value().toUpperCase());
-  cipherFilter = cipherFilter.filter(v => alpha.includes(v)).join("")
+  cipherFilter = cipherFilter.filter(v => alpha.includes(v)).join("");
 
   cipherTest = cipherFilter;
   let possibility = step();
