@@ -1,12 +1,12 @@
 // This solver also requires "Trigrams.js" to evaluate the value of each change made.
-const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 const randomQuotes = ["Making things up...", "Just solve it yourself...", "Deleting the text..."];
+const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 const quoteLen = randomQuotes.length;
+let cipherFilter = "";
 let plaintext = "";
-let size = 30;
 let solutions = [[], []];
 let limit = 10;
-let n = 0;
+let n = 10;
 
 function fitness(arr) {
   let total = 0;
@@ -47,7 +47,7 @@ function step() {
 
 function solve() {
   cipherFilter = Array.from(buttons.input.value().toUpperCase());
-  cipherFilter = cipherFilter.filter(v => alpha.includes(v)).join("");
+  cipherFilter = cipherFilter.filter(v => alpha.includes(v)).join("")
 
   cipherTest = cipherFilter;
   let possibility = step();
@@ -100,7 +100,7 @@ function setup() {
   textWrap(CHAR);
   buttons = {
     input: createInput(),
-    size: createInput("30"),
+    size: createInput("20"),
     iter: createInput("10"),
     copy: createButton("Copy"),
     auto: createButton("Auto-Solve")
