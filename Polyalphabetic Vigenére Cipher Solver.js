@@ -123,7 +123,7 @@ function draw() {
   cipherFilter = ciphertext.filter(v => alpha.includes(v));
   cipherLen = cipherFilter.length;
   keyLen = Math.max(Number(buttons.len.value()), 1);
-  key = buttons.key.value();
+  key = buttons.key.value().toUpperCase();
   if (keyLen !== buttons.key.value().length) {
     key = Array(keyLen).fill("A");
     buttons.key.value(key.join(""));
