@@ -27,6 +27,9 @@ A tool that can be used to decrypt Caesar Ciphers. It works best with longer inp
 
 A tool to decrypt simple permutation/transposition ciphers. It uses trigram analysis to choose the right key, which is then used to decrypt the ciphertext. It may be prudent to change the key length a couple of times to find the right answer. When entering a custom key, each number should be separated by a comma, and nothing more. Again, the hotkeys are: space to auto-solve & enter to copy result.
 
+### [Columnar Transposition Cipher Decoder:]
+> In progress!
+
 ### [Substitution Cipher Solver:](https://openprocessing.org/sketch/2090613)
 > https://openprocessing.org/sketch/2090613
 
@@ -35,4 +38,4 @@ You may use this to decrypt monoalphabetic substitution ciphers;  it may take mu
 ### [Vigenére Cipher Solver:](https://openprocessing.org/sketch/2098220)
 > https://openprocessing.org/sketch/2098220
 
-This tool can be used to assist in decrypting Vigenére ciphers. Again, like the substitution cipher solver, it may be prudent to run this multiple times to get a fully accurate result. It also uses the usual hotkeys for copy and autosolve (enter and spacebar respectively). You may also need to bruteforce the key length to find the plaintext. Note that to use a custom key, you must change "Key Len" to match the length of the new key and paste it in, rather than type it out to maintain continuity in the program.
+This tool can be used to assist in decrypting Vigenére ciphers. Again, like the substitution cipher solver, it may be prudent to run this multiple times to get a fully accurate result. It also uses the usual hotkeys for copy and autosolve (enter and spacebar respectively). You may also need to bruteforce the key length to find the plaintext. Note that to use a custom key, you must change "Key Len" to match the length of the new key and then paste it in, rather than type it out to maintain continuity in the program.
