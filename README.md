@@ -32,5 +32,7 @@ A tool to decrypt simple permutation/transposition ciphers. It uses trigram anal
 
 You may use this to decrypt monoalphabetic substitution ciphers;  it may take multiple tries to get the right answer. It uses randomness to solve the cipher because it would be far too inefficient to search each combination. This means that sometimes the right solution may be skipped over. Increasing the number of iterations means it will take longer, but you will be left with a more accurate result. Hotkeys are: spacebar to solve & enter to copy.
 
-### Vigenére Cipher Solver:
-> In progress!
+### [Vigenére Cipher Solver:](https://openprocessing.org/sketch/2098220)
+> https://openprocessing.org/sketch/2098220
+
+This tool can be used to assist in decrypting Vigenére ciphers. Again, like the substitution cipher solver, it may be prudent to run this multiple times to get a fully accurate result. It also uses the usual hotkeys for copy and autosolve (enter and spacebar respectively). You may also need to bruteforce the key length to find the plaintext.
