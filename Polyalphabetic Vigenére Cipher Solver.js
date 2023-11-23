@@ -1,6 +1,7 @@
+// Like some other of my solvers, this also requres "Trigrams.js".
 const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 let cipherFilter = "";
-let solutions = "";
+let solution = "";
 
 function fitness(arr) {
   let total = 0;
@@ -43,9 +44,8 @@ function solve() {
       stability = 0;
     }
     key = fitnessArr[2][best];
-    buttons.key.value(fitnessArr[2][best]);
+    buttons.key.value(fitnessArr[2][best].join(""));
     solution = fitnessArr[0][best].join("");
-    console.log(solution);
   }
 }
 
@@ -69,9 +69,9 @@ function setup() {
   textAlign(CENTER);
   textWrap(CHAR);
   buttons = {
-    input: createInput(sample),
-    size: createInput("20"),
-    key: createInput("Enter a key:"),
+    input: createInput(),
+    size: createInput("30"),
+    key: createInput("AAA"),
     len: createInput("3"),
     copy: createButton("Copy"),
     auto: createButton("Auto-Solve")
@@ -104,7 +104,7 @@ function draw() {
     if (v != "input") {
       buttons[v].style("font-size", `${windowHeight/13.8}px`);
       buttons[v].style("border-radius", "10px");
-      buttons[v].style("background-color", "rgb(25,25,25)");
+      buttons[v].style("background-color", "rgb(15,15,15)");
       buttons[v].style("color", "rgb(200,200,200)");
     }
   }	
@@ -118,9 +118,16 @@ function draw() {
   text(": Key Len", windowHeight*(1/7), windowHeight*(2.75/6));
   textAlign(CENTER);
   textSize(windowHeight/34.5);
-  ciphertext = Array.from(buttons.input.value());
+  ciphertext = Array.from(buttons.input.value().toUpperCase());
   cipherFilter = ciphertext.filter(v => alpha.includes(v));
   cipherLen = cipherFilter.length;
+  keyLen = Math.max(Number(buttons.len.value()), 1);
   key = buttons.key.value();
-  keyLen = buttons.len.value();
+  if (keyLen !== buttons.key.value().length) {
+    key = Array(keyLen).fill("A")
+  }
+
+  solution = vigenere(Array.from(key), cipherFilter).join("");
+  textSize(Number(buttons.size.value()));
+  text(solution, windowWidth*(32/100), windowWidth/30, windowWidth*(67/100));
 }
