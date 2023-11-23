@@ -1,51 +1,126 @@
-/* Python solver!
-alpha = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-cipherFilter = [v for v in ciphertext if v in alpha]
+const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+let cipherFilter = "";
+let solutions = "";
 
-key = random.choices(alpha, k=5)
-#key = ["K", "E", "Y"]
+function fitness(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length - 2; i++) {
+    total += trigrams[arr.slice(i, i + 3).join("")];
+  }
+  return total;
+}
 
-def fitness(arr):
-  total = 0
-  for i in range(len(arr) - 2):
-    total += trigrams["".join(arr[i: i + 3])]
-  return total
+function vigenere(key, ciphertext) {
+  let plaintext = [];
+  for (let i = 0; i < cipherLen; i++) {
+    let newChar = (ciphertext[i].charCodeAt(0) - key[i % keyLen].charCodeAt(0) + 26) % 26;
+    plaintext.push(alpha[newChar]);
+  }
+  return plaintext;
+}
 
-def solve(key, ciphertext):
-  plaintext = []
-  for i, v in enumerate(ciphertext):
-    newChar = ord(v) - ord(key[i % len(key)])
-    newChar %= 26
-    plaintext.append(alpha[newChar])
-  return plaintext
+function solve() {
+  key = [];
+  for (_ = 0; _ < keyLen; _++) {
+    key.push(alpha[Math.floor(Math.random() * 26)]);
+  }
+  let stability = 0;
+  while (stability !== keyLen * 3) {
+    fitnessArr = [[], [], []];
+    let testKey = [...key];
+    let randChar = Math.floor(Math.random() * keyLen);
+    for (let char of alpha) {
+      testKey[randChar] = char;
+      let buffer = vigenere(testKey, cipherFilter);
+      fitnessArr[0].push(buffer);
+      fitnessArr[1].push(fitness(buffer));
+      fitnessArr[2].push([...testKey]);
+    }
+    let best = fitnessArr[1].indexOf(Math.max(...fitnessArr[1]));
+    if (fitnessArr[2][best].join("") == key.join("")) {
+      stability += 1;
+    } else {
+      stability = 0;
+    }
+    key = fitnessArr[2][best];
+    buttons.key.value(fitnessArr[2][best]);
+    solution = fitnessArr[0][best].join("");
+    console.log(solution);
+  }
+}
 
-stability = 0
-while stability != len(key) * 5:
-  testKey = key.copy()
-  fitnessArr = [[], [], []]
-  randChar = random.randint(0, len(key) - 1)
+function copyPlaintext() {
+  let decrypt = document.createElement("textarea");
+  document.body.appendChild(decrypt);
+  decrypt.value = solution;
+  decrypt.select();
+  document.execCommand("copy");
+  decrypt.remove();
+}
 
-  for char in alpha:
-    testKey[randChar] = char
-    buffer = solve(testKey, cipherFilter)
+function keyPressed() {
+  switch (keyCode) {
+    case ENTER: copyPlaintext(); break;
+    case 32: solve(); break;
+  }
+}
 
-    fitnessArr[0].append(buffer)
-    fitnessArr[1].append(fitness(buffer))
-    fitnessArr[2].append(testKey.copy())
+function setup() {
+  textAlign(CENTER);
+  textWrap(CHAR);
+  buttons = {
+    input: createInput(sample),
+    size: createInput("20"),
+    key: createInput("Enter a key:"),
+    len: createInput("3"),
+    copy: createButton("Copy"),
+    auto: createButton("Auto-Solve")
+  }
+  buttons.auto.mousePressed(solve);
+  buttons.copy.mousePressed(copyPlaintext);
+}
 
-  best = fitnessArr[1].index(max(fitnessArr[1]))
-  print("".join(fitnessArr[0][best]) + "\n\n")
-  print(fitnessArr[1][best])
+function draw() {
+  positions = {
+    input: [windowWidth*(32/100), windowWidth/100],
+    size: [windowWidth/100, windowHeight*(1.25/6)],
+    key: [windowWidth/100, windowHeight/25],
+    len: [windowWidth/100, windowHeight*(2.25/6)],
+    copy: [windowWidth/100, windowHeight*(3.5/6)],
+    auto: [windowWidth/100, windowHeight*(4.75/6)]
+  }
+  sizes = {
+    input: [windowWidth*(67/100), 20],
+    size: [windowHeight*(1/7), windowHeight*(1/7)],
+    key: [windowWidth*(3/10), windowHeight*(1/7)],
+    len: [windowHeight*(1/7), windowHeight*(1/7)],
+    copy: [windowWidth*(3/10), windowHeight*(1/6)],
+    auto: [windowWidth*(3/10), windowHeight*(1/6)]
+  }
+  createCanvas(windowWidth-10, windowHeight-10);
+  for (let v in buttons) {
+    buttons[v].position(positions[v][0], positions[v][1]);
+    buttons[v].size(sizes[v][0], sizes[v][1]);
+    if (v != "input") {
+      buttons[v].style("font-size", `${windowHeight/13.8}px`);
+      buttons[v].style("border-radius", "10px");
+      buttons[v].style("background-color", "rgb(25,25,25)");
+      buttons[v].style("color", "rgb(200,200,200)");
+    }
+  }	
+  background(0);
+  fill(200);
+  line(windowWidth*(31/100), 0, windowWidth*(31/100), windowHeight);
 
-  if fitnessArr[2][best] == key:
-    stability += 1
-  else:
-    stability = 0
-  print(stability)
-  key = fitnessArr[2][best]
-  print(key)
-  
-print("".join(solve(key, cipherFilter)))
-print(fitness(solve(key, cipherFilter)))
-
-*/
+  textSize(windowHeight/13.8);
+  textAlign(LEFT);
+  text(": Text Size", windowHeight*(1/7), windowHeight*(1.75/6));
+  text(": Key Len", windowHeight*(1/7), windowHeight*(2.75/6));
+  textAlign(CENTER);
+  textSize(windowHeight/34.5);
+  ciphertext = Array.from(buttons.input.value());
+  cipherFilter = ciphertext.filter(v => alpha.includes(v));
+  cipherLen = cipherFilter.length;
+  key = buttons.key.value();
+  keyLen = buttons.len.value();
+}
