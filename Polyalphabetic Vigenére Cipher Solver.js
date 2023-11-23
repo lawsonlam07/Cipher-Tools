@@ -118,13 +118,15 @@ function draw() {
   text(": Key Len", windowHeight*(1/7), windowHeight*(2.75/6));
   textAlign(CENTER);
   textSize(windowHeight/34.5);
+  
   ciphertext = Array.from(buttons.input.value().toUpperCase());
   cipherFilter = ciphertext.filter(v => alpha.includes(v));
   cipherLen = cipherFilter.length;
   keyLen = Math.max(Number(buttons.len.value()), 1);
   key = buttons.key.value();
   if (keyLen !== buttons.key.value().length) {
-    key = Array(keyLen).fill("A")
+    key = Array(keyLen).fill("A");
+    buttons.key.value(key.join(""));
   }
 
   solution = vigenere(Array.from(key), cipherFilter).join("");
