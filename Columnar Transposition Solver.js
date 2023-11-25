@@ -1,5 +1,7 @@
 // Once again, "Trigrams.js" is used to evaluate permutations.
 const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+let solutions = [[[""]], [], []];
+let best = 0;
 
 function permutations(lim, n=0, used=[]) {
   for (let v of choices) {
@@ -29,28 +31,26 @@ function step(key, columns) {
   const plaintext = [];
   for (let i = 0; i < block; i++) {
     for (let j of key) {
-      plaintext.push(columns[j][i]);
+      plaintext.push(columns[Number(j)][i]);
     }
   }
   return plaintext;
 }
 
 function solve() {
-  let columns = [];
-  let solutions = [[], []];
+  solutions = [[], [], []];
   choices = Array.from({ length: keyLen }, (_, i) => i);
-  for (let i = 0; i < keyLen; i++) {
-    columns.push(ciphertext.slice(block * i, block * (i + 1)));
-  }
+
   perms = [];
   permutations(keyLen);
   for (let key of perms) {
     let plaintext = step(key, columns);
     solutions[0].push(plaintext);
     solutions[1].push(fitness(plaintext));
+    solutions[2].push(key);
   }
-  let best = solutions[1].indexOf(Math.max(...solutions[1]))
-  solution = solutions[0][best].join("");
+  best = solutions[1].indexOf(Math.max(...solutions[1]))
+  buttons.key.value(solutions[2][best]);
 }
 
 function drawUI() {
@@ -89,8 +89,8 @@ function setup() {
   solution = "";
   buttons = {
     input: createInput(),
-    key: createInput(" Enter a key:"),
-    size: createInput("30"),
+    key: createInput("0,1,2,3,4"),
+    size: createInput("20"),
     len: createInput("5"),
     copy: createButton("Copy"),
     auto: createButton("Auto-Solve")
@@ -132,4 +132,9 @@ function draw() {
   ciphertext = ciphertext.filter(v => alpha.includes(v)).join("");
   keyLen = Number(buttons.len.value());
   block = Math.floor(ciphertext.length/keyLen);
+  columns = [];
+  for (let i = 0; i < keyLen; i++) {
+    columns.push(ciphertext.slice(block * i, block * (i + 1)));
+  }
+  solution = step(buttons.key.value().split(","), columns).join("");
 }
