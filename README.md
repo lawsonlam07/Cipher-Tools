@@ -41,3 +41,6 @@ You may use this to decrypt monoalphabetic substitution ciphers;  it may take mu
 > https://openprocessing.org/sketch/2098220
 
 This tool can be used to assist in decrypting Vigenére ciphers. Again, like the substitution cipher solver, it may be prudent to run this multiple times to get a fully accurate result. It also uses the usual hotkeys for copy and autosolve (enter and spacebar respectively). You may also need to bruteforce the key length to find the plaintext. Note that to use a custom key, you must change "Key Len" to match the length of the new key and then paste it in, rather than type it out to maintain continuity in the program.
+
+### Hill Cipher Solver:
+> Coming soon!
