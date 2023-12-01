@@ -1,13 +1,18 @@
-let ciphertext = Array.from("VRDPK RWFAO MMPRZ EVEWE UTCOP LHTAT GELUI ITOAT XEZRV NRTTF HUDDB TBOAT AIVRD PKRWW USAOU MKSWI RNEDR YLHWC ZRTAF OGEFO WDLHI OVTAO SEYFL HQCYM AIASB OVIGG QNCAB TDVBT WETOA TWEIO XTGRW OGNFF KCTLR TNAWD AOKAV EGEAO QMQNT AWIFN BOBIV SZEPE DOQMG NFAXT PREEJ RTOXP BOIEZ RTNKW BRZBF FRRDD YYQNH OLHJR ATHEZ EPEDO QMGNT OATME VRQXR RFOLD NNPRM MJCVI WEIOZ TVRPW LHCCP PKCRT VIIOY REETD UUKRV ESSMT ZRVNR TDWRA BFBIL HCAUH AEVIT CEEWS VIHSI EDDQN DPAWK RLHZR CSTOL DUSJO VEEYV RQWGN TIATG ELUII HHQDQ OVHKI FENUH TQCYM AIASB ONAAE FFKCT LRTVI HSZIH EZBAT PEWEG SFNPL RARNL DYNBO RDVNP TSAHD KCHDW DPOCU OLLAR AKGVR LSBAT LZSQM GNHUH DTRJO VETOA TGEBO LSLRV CWIBN YFLHG SNUVE DPVIE TOIAH VHMUX ELHNF JRWTH EKITA HEPEG EKTKI LAJLD PAWVR ODMAD PNFLT SKQNA TKEFR PWPHZ NVIVI OGGNL HRAEE GPJOL IHEBE GCWLR EVTJO VETFK RLHVI LSLAL LBTBO TOIOE RXEKW BRTOC CZVER MSQNV ERNTA AHLHT LNGAT IOWSN AWDLH VILSL ALLBT BONAP DIAGN RENAG CTOAT PEOIA HVHMU PEMAH PXTMA REOGR NHSGU HPNAJ DREVE TAFOV SAIAG AIHEI OFRJW CABTD VBTWE SAAWU ECUEP HEATF ESAXE LHVHX LWEKG RNRRH TJRAT TAAWG PQOLU HERAM EHDGN KILAH TATGO WEPEG EXTID FOATP EOIAH VHMUW EHOHH LTPPV RPPKR USNAF BGPQO LUHEE EASJL EWATI OKTIA ASTNM SHSKI WIGNL HYYVR UDDIR EZBPA IAFRX FXTMA REOGR NDSQO TAHEH DTEVI ATVEQ OYKHF PLDAB OPHWL FBRNT AAHLH TLNGA TIOWS REOGR NFRAO GMJCT OATRE WOWSN AKDEE MTLHN YFRXD GCAIG MKFPL EDRYL HFRMC SSQNA TTADW KILHU SPAWE AIUML SKARE ZBRNO IIHIO JRTFK RLHJC LUVNT NTOAT PEOIA HVHMU QECAP HRNPR BIWSQ ELSHH GTGOM UXPKC BOZSV AFEIE NNFRM UHEMA BOZGL HZLCC DLDWQ OBOBT HNXEP OPEMI ZVATT AIORR VCDIB IMISS VRGSQ MVHNW PETAH EHTAT PEOIA HVHMU EEQNA TQEVI WEBIA IWABO HDKRP OLEZO WDLHL HVAKY CAPHR NPRQC INVEB TTNAT QEJOQ EREHT YFLHM MKSDI JEJLD WIETL GNHOL HUITP TRTEB TMBQE HOWIB NRFQY XTZRI OWSPL VCZRC CNLHH XRWEA TFRAU AHLHE WVRAS BTVSN INFWC ELHTQ CBMVR LHQNA TTAAT ZERAW IMUPP KRGSY FLHMM JCVIG ENAQC NMVIX EDOFR XDGCN ARYPH TNPAG POOJC VINGG UNAAT IONGT TQNCY BTVTA OJPXT ESFOS EZVKR PHUSA OJPXT VRNMR OMILS LHDVA SBOTO ATGEI OGNWE GSQFJ OPECA XEHHH TFFMM JCVIA EPHJC CCTNP OCEBO PDVEG ELAWC LLBTB OHTAT EENNJ LASGS YFLHV VLSUS VRHEG SNFSN FOMMB TBOAT TABNY WFRKS ATAEF OOLZB ATQEZ ICAPL TOXTP LXGPA FHIOJ RTTKF TAGSN UVEDP VIATV AFEIE NNMBX ESOMX ZLBIA TEEGD BIWIN NPLRN XRNYF RDVHD EDRYL HRNCW REVET AFOLS ROIOM BXELH QCBMN UVIVG KOVET OATEE NNJLB TCCPL TNVIE EQNRA REKOB APLHT GPQOW ELSEW GCSAM MLNXT PLXGM AASGN LHSSQ MBTQM MUVIZ GLHLS TAAIB TCCEL GEUHY IYUHS WIRNV EHEZB BBCBG AEEQN VNNGB TTNLA EEQNI AHDED RYLHD PAWFR YFLHH DDVGC ATQEG OLTGE LUPEC YPNXI LHVRP DWESS KGQSM IOLAT MEJRG EVRLT GPJOL IVIOG GNPET LKGPN FECEB ODDLN ATVIZ GHHVT IOOLF BSAGC KRIAR NEDCY ZVGNL HLLXR WEGTX EKWBR TOGAR ELTDW TIXEP HESWU PHYSC ODDQN HTFBG CPLSB TAHEA TVEME SSDLP ODARN OWIIP MAIPA DPVIX TWDFO TEFOM THHMT LHDAL DBTBO LAJVF LQMTO KTFAN FQCGN LHXTP LXGPA FHRNP TFOKK QNATM EPNVR SAHER RXTTA DWKID HLEVA FEIEN NMBXE ROGEX ILHKR VHWSQ MKSGA WEHHK SKTXE JCHEA TEEJB TLRTT OIODR GOITK OVEZF PLTNV IXELH TFHUD DBTBO MMJCV IXEGO JUDPK RATEE NNJLL SASGN LHZIK WBRSA RAWEF UPTVE AINKF RJWVI OGVNS NFOMM BTBOA WCCAN HOMUA ELEVA VEEEJ CHEAT PEUIB IGSBF HHHTR NMMJC VIGEN ARDNA LDBFE EVRHT MMOKA TQEGO HTYFP HFSAE PBHUR TATRE AWEWW LRNHE HTTLX NWSZV RRTLG NLHZI QCBMN UTAWI FNGSA TTAAT CECCN NNNJL WSNAU DTEFO PTHHM TLHDY VIDDX SSATT LSLHQ MKSGA WEQFK OATAI EWWLV RKQZI EERNB NDRIO ASPNV RSAME BNLUG PROWU BTBOT OPEGE KTKIB IUYPH JCCCA NHOFB CAPHZ EHEZB QCNMM UBTBO EWATI OTTLL XRMEP NVRSA MEGNL HQCFN GUIPW IBNKF YUELL HQCLS KWFUE DTEFR PHJBB TZVVB XTZVV NNFVT IOOLF BQMMT LHQCI RWEDP QNVIO GPNVR SAMEG NLHGP ROWUB TBOTO LHTAN AQDWO WSKWF UEDYE YNSIP ERYSO USPAE EMTRE BTBOZ EREBO ATAET IQDFO ATEEL SQCSA BTBFE EVRHT VRLAA ISELU ZFWLM AJBBT BOOSR EIEWD TOVID DAMVR VRAMX TZLCC BTBOE WATRA EEBDG SLUGC TODPA WVRLD GSFNK WBRTA PAAPX EBOZS KOYSV RTAGP AOAIE EQNBI PHXNS IBNPW LHLIE EWLQO TAWIG NPOCU OLBIM MPRZE VEWEU TCOPL")
+// You know the drill by now, "Trigrams.js" is required.
+const randomQuotes = ["Making things up...", "Just solve it yourself...", "Deleting the text..."];
+const quoteLen = randomQuotes.length;
 const alpha = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 const distribution = [
   8.55, 1.60, 3.16, 3.87, 12.10, 2.18, 2.09, 4.96, 7.33, 0.22, 0.81, 4.21, 2.53,
   7.17, 7.47, 2.07, 0.10, 6.33, 6.73, 8.94, 2.68, 1.06, 1.83, 0.19, 1.72, 0.11
 ];
-ciphertext = ciphertext.filter(v => alpha.includes(v));
 const bin = {false: 0, true: 1};
 const options = Array.from({length: 26}, (_, i) => i);
-let key = Array.from({length: 4}, () => Math.floor(Math.random() * 26));
+let key = [0, 0, 0, 0];
+let solutions = [[], [], []];
+let plaintext = "";
+let limit = 5;
+let n = 5;
 
 function fitness(arr) {
   const difference = alpha.map(v => arr.filter(x => x === v).length / arr.length * 100);
@@ -15,14 +20,22 @@ function fitness(arr) {
   for (let i = 0; i < difference.length; i++) {
     total += Math.abs(distribution[i] - difference[i]);
   }
+  return 100 - total;
+}
+
+function trigramFitness(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length - 2; i++) {
+    total += trigrams[arr.slice(i, i + 3).join("")];
+  }
   return total;
 }
 
-function solve(key) {
+function hill(key) {
   const ans = [];
-  for (let i = 0; i < ciphertext.length; i += 2) {
-    const x = alpha.indexOf(ciphertext[i]);
-    const y = alpha.indexOf(ciphertext[i + 1]);
+  for (let i = 0; i < cipherFilter.length; i += 2) {
+    const x = alpha.indexOf(cipherFilter[i]);
+    const y = alpha.indexOf(cipherFilter[i + 1]);
     for (let j = 0; j < 2; j++) {
       ans.push(alpha[(key[2 * j] * x + key[2 * j + 1] * y) % 26]);
     }
@@ -30,28 +43,134 @@ function solve(key) {
   return ans;
 }
 
-let stability = 0;
-let parity = Math.random() < 0.5;
-while (stability !== 5) {
-  parity = !parity;
-  const testKey = [...key];
-  const fitnessArr = [[], [], []];
-  for (const x of options) {
-    for (const y of options) {
-      testKey[2 * bin[parity]] = x;
-      testKey[2 * bin[parity] + 1] = y;
-      const buffer = solve(testKey);
-      fitnessArr[0].push(buffer);
-      fitnessArr[1].push(fitness(buffer));
-      fitnessArr[2].push([...testKey]);
+function findBest(arr) {return arr[1].indexOf(Math.max(...arr[1]))}
+
+function step() {
+  let stability = 0;
+  let solution = "";
+  let parity = Math.random() < 0.5;
+  key = Array.from({length: 4}, () => Math.floor(Math.random() * 26));
+  while (stability !== 5) {
+    parity = !parity;
+    const testKey = [...key];
+    const fitnessArr = [[], [], []];
+    for (const x of options) {
+      for (const y of options) {
+        testKey[2 * bin[parity]] = x;
+        testKey[2 * bin[parity] + 1] = y;
+        const buffer = hill(testKey);
+        fitnessArr[0].push(buffer);
+        fitnessArr[1].push(fitness(buffer));
+        fitnessArr[2].push([...testKey]);
+      }
     }
+    let best = findBest(fitnessArr);
+    stability = (fitnessArr[2][best].join("") === key.join("") ? stability + 1 : 0);
+    key = [...fitnessArr[2][best]];
+    solution = fitnessArr[0][best];
   }
-  const best = fitnessArr[1].indexOf(Math.min(...fitnessArr[1]));
-  console.log(fitnessArr[0][best].join("") + "\n\n");
-  console.log(fitnessArr[1][best]);
-  stability = (fitnessArr[2][best].join("") === key.join("") ? stability + 1 : 0);
-  key = [...fitnessArr[2][best]];
+  return solution;
 }
-plaintext = solve(key)
-print(fitness(plaintext))
-print(plaintext)
+
+function copyPlaintext() {
+  let decrypt = document.createElement("textarea");
+  document.body.appendChild(decrypt);
+  decrypt.value = plaintext;
+  decrypt.select();
+  document.execCommand("copy");
+  decrypt.remove();
+}
+
+function keyPressed() {
+  switch (keyCode) {
+    case ENTER: copyPlaintext(); break;
+    case 32: reset(); break;
+  }
+}
+
+function reset() {
+  n = 0;
+  solutions = [[], [], []];
+  plaintext = "";
+}
+
+function setup() {
+  textAlign(CENTER);
+  textWrap(CHAR);
+  buttons = {
+    input: createInput(),
+    size: createInput("20"),
+    iter: createInput("5"),
+    copy: createButton("Copy"),
+    auto: createButton("Auto-Solve")
+  }
+  buttons.auto.mousePressed(reset);
+  buttons.copy.mousePressed(copyPlaintext);
+}
+
+function draw() {
+  limit = Number(buttons.iter.value());
+  positions = {
+    input: [windowWidth*(32/100), windowWidth/100],
+    size: [windowWidth/100, windowHeight*(1.25/6)],
+    iter: [windowWidth/100, windowHeight*(2.25/6)],
+    copy: [windowWidth/100, windowHeight*(3.5/6)],
+    auto: [windowWidth/100, windowHeight*(4.75/6)]
+  }
+  sizes = {
+    input: [windowWidth*(67/100), 20],
+    size: [windowHeight*(1/7), windowHeight*(1/7)],
+    iter: [windowHeight*(1/7), windowHeight*(1/7)],
+    copy: [windowWidth*(3/10), windowHeight*(1/6)],
+    auto: [windowWidth*(3/10), windowHeight*(1/6)]
+  }
+  createCanvas(windowWidth-10, windowHeight-10);
+  for (let v in buttons) {
+    buttons[v].position(positions[v][0], positions[v][1]);
+    buttons[v].size(sizes[v][0], sizes[v][1]);
+    if (v != "input") {
+      buttons[v].style("font-size", `${windowHeight/13.8}px`);
+      buttons[v].style("border-radius", "10px");
+      buttons[v].style("background-color", "rgb(57,57,57)");
+      buttons[v].style("color", "rgb(174,174,174)");
+      buttons[v].style("text-shadow", "-2px -2px rgb(0,0,0)");
+    }
+  }	
+  background(50);
+  fill(100);
+  let loading = [windowWidth/100, windowWidth/100, windowWidth*(29/100), windowHeight/10];
+  rect(...loading);
+  fill(158, 235, 52);
+  rect(loading[0]+5, loading[1]+5, (loading[2]-10)*(n/limit), loading[3]-10);
+  fill(150);
+  line(windowWidth*(31/100), 0, windowWidth*(31/100), windowHeight);
+
+  textSize(windowHeight/13.8);
+  textAlign(LEFT);
+  text(": Text Size", windowHeight*(1/7), windowHeight*(1.75/6));
+  text(": Iterations", windowHeight*(1/7), windowHeight*(2.75/6));
+  textAlign(CENTER);
+  textSize(windowHeight/34.5);
+
+  cipherFilter = Array.from(buttons.input.value().toUpperCase()).filter(v => alpha.includes(v));
+  if (n < limit) {
+    let quote = randomQuotes[Math.floor(Math.random()*quoteLen)];
+    text(quote, windowWidth*(15.5/100), windowHeight*(1.5/10));
+    let solution = step();
+    solutions[0].push(solution);
+    solutions[1].push(trigramFitness(solution));
+    solutions[2].push(key);
+    n++;
+  } else {
+    let best = findBest(solutions);
+    if (best !== -1) {
+      plaintext = solutions[0][best].join("");
+      text(solutions[2][best], windowWidth*(15.5/100), windowHeight*(1.5/10));
+    } else {
+      plaintext = "";
+      text("0,0,0,0", windowWidth*(15.5/100), windowHeight*(1.5/10));
+    }
+    textSize(Number(buttons.size.value()));
+    text(plaintext, windowWidth*(32/100), windowWidth/30, windowWidth*(67/100));
+  }
+}
