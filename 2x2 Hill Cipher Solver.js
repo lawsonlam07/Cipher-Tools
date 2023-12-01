@@ -99,7 +99,7 @@ function setup() {
   textWrap(CHAR);
   buttons = {
     input: createInput(),
-    size: createInput("20"),
+    size: createInput("25"),
     iter: createInput("5"),
     copy: createButton("Copy"),
     auto: createButton("Auto-Solve")
