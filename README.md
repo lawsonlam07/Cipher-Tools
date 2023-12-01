@@ -44,3 +44,5 @@ This tool can be used to assist in decrypting Vigenére ciphers. Again, like the
 
 ### Hill Cipher Solver:
 > Coming soon!
+
+Yet another tool... This one solves 2x2 Hill Ciphers, as the name suggests. Monogram analysis is used initially to find some solutions, but since different solutions can have the same monogram fitness, trigram analysis is used to differentiate between them. Once again, space to auto-solve and enter to copy. Increasing the number of iterations means it will take longer, but you will be left with a more accurate result.
