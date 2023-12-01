@@ -42,7 +42,7 @@ You may use this to decrypt monoalphabetic substitution ciphers;  it may take mu
 
 This tool can be used to assist in decrypting Vigenére ciphers. Again, like the substitution cipher solver, it may be prudent to run this multiple times to get a fully accurate result. It also uses the usual hotkeys for copy and autosolve (enter and spacebar respectively). You may also need to bruteforce the key length to find the plaintext. Note that to use a custom key, you must change "Key Len" to match the length of the new key and then paste it in, rather than type it out to maintain continuity in the program.
 
-### [Hill Cipher Solver:](https://openprocessing.org/sketch/2110644)
+### [2x2 Hill Cipher Solver:](https://openprocessing.org/sketch/2110644)
 > https://openprocessing.org/sketch/2110644
 
 Yet another tool... This one solves 2x2 Hill Ciphers, as the name suggests. Monogram analysis is used initially to find some solutions, but since different solutions can have the same monogram fitness, trigram analysis is used to differentiate between them. Once again, space to auto-solve and enter to copy. Increasing the number of iterations means it will take longer, but you will be left with a more accurate result.
