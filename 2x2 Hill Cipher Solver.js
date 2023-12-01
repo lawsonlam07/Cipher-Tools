@@ -4,16 +4,33 @@ import random
 from trigrams import trigrams
 
 alpha = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+distribution = [
+  8.55, 1.60, 3.16, 3.87, 12.10, 2.18, 2.09, 4.96, 7.33, 0.22, 0.81, 4.21, 2.53,
+  7.17, 7.47, 2.07, 0.10, 6.33, 6.73, 8.94, 2.68, 1.06, 1.83, 0.19, 1.72, 0.11
+]
+
 ciphertext = [v for v in ciphertext if v in alpha]
 options = [0, 1, 25]
+#options = [0, 1, 2, 3, 4, 5, 20, 21, 22, 23, 24, 25]
 #options = [i for i in range(26)]
 
-key = random.choices([i for i in range(10)], k=4)
+key = random.choices([i for i in range(26)], k=4)
+
+# def fitness(arr):
+#   total = 0
+#   for i in range(len(arr) - 2):
+#     total += trigrams["".join(arr[i: i + 3])]
+#   return total
 
 def fitness(arr):
+  difference = []
+  arrLen = len(arr)
+  for v in alpha:
+    difference.append(arr.count(v) / arrLen * 100)
+
   total = 0
-  for i in range(len(arr) - 2):
-    total += trigrams["".join(arr[i: i + 3])]
+  for i, v in enumerate(difference):
+    total += abs(distribution[i] - v)
   return total
 
 def solve(key):
@@ -42,7 +59,7 @@ while stability != 5:
       fitnessArr[1].append(fitness(buffer))
       fitnessArr[2].append(testKey.copy())
 
-  best = fitnessArr[1].index(max(fitnessArr[1]))
+  best = fitnessArr[1].index(min(fitnessArr[1]))
   print("".join(fitnessArr[0][best]) + "\n\n")
   print(fitnessArr[1][best])
 
