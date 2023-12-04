@@ -48,15 +48,15 @@ function plainChanged() {
 
 function solve() {
   if (mode) {
-    joiner = ""
+    joiner = "";
     initial = buttons.ciphertext.value().split(" ");
-    toText = "toPlaintext"
-    result = "plaintext"
+    toText = "toPlaintext";
+    result = "plaintext";
   } else {
-    joiner = " "
+    joiner = " ";
     initial = Array.from(buttons.plaintext.value().toUpperCase());
-    toText = "toCipher"
-    result = "ciphertext"
+    toText = "toCipher";
+    result = "ciphertext";
   }
   let end = [];
   for (let v of initial) {
