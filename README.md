@@ -17,6 +17,11 @@ This can be used to convert between 5-bit binary and English. You can press ente
 
 This can be used to convert between Morse code and English. Again, you can press enter to copy, and there is no hotkey for solve. Conversion works both ways, as long as you put the right text in the right box.
 
+### [Polybius Square Converter:](https://openprocessing.org/sketch/2113566)
+> https://openprocessing.org/sketch/2113566
+
+This can be used to convert between an A-Y Polybius square and English. If the result after conversion to English is gibberish, try putting it in my substitution cipher solver! Yet again, enter to copy and there is no hotkey for solve. You can edit either box, so conversion works both ways, as long as you put the right text in the right box.
+
 ### [Caesar Cipher Decoder:](https://openprocessing.org/sketch/2044449)
 > https://openprocessing.org/sketch/2044449
 
