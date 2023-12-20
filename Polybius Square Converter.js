@@ -19,26 +19,26 @@ function plainChanged() {
 }
 
 function solve() {
-	let end = [];
+  let end = [];
   if (mode) {
-		let ciphertext = Array.from(buttons.ciphertext.value());
-		ciphertext = ciphertext.filter(v => numbers.includes(v)).join("");
+    let ciphertext = Array.from(buttons.ciphertext.value());
+    ciphertext = ciphertext.filter(v => numbers.includes(v)).join("");
     ciphertext = ciphertext.match(/.{1,2}/g);
-  	for (let pair of ciphertext) {
+    for (let pair of ciphertext) {
       end.push(square[Number(pair[0])-1][pair[1]-1]);
-  	}
-  	buttons["plaintext"].value(end.join(""));
+    }
+    buttons["plaintext"].value(end.join(""));
   } else {
     plaintext = Array.from(buttons.plaintext.value().toUpperCase());
-		plaintext = plaintext.filter(v => alpha.includes(v));
-  	for (let v of plaintext) {
-			for (let [i, block] of square.entries()) {
-				if (block.includes(v)) {
-					end.push(`${i+1}${block.indexOf(v)+1} `);
-				}
-			}
+    plaintext = plaintext.filter(v => alpha.includes(v));
+    for (let v of plaintext) {
+      for (let [i, block] of square.entries()) {
+        if (block.includes(v)) {
+          end.push(`${i+1}${block.indexOf(v)+1} `);
+        }
+      }
     }
-		buttons["ciphertext"].value(end.join(""));
+    buttons["ciphertext"].value(end.join(""));
   }
 }
 
