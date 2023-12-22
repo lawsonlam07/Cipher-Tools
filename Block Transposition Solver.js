@@ -39,7 +39,7 @@ function fitness(key) {
 function solve() {
   perms = []; weights = [];
   choices = Array.from({length: Number(buttons.len.value())}, (_, i) => i);
-  permutations(Number(buttons.len.value()));
+  permutations(isNaN(parseInt(buttons.len.value())) && 1 || parseInt(buttons.len.value()));
   for (let v of perms) {
     fitness(v);
   }
