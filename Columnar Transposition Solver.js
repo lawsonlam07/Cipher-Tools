@@ -51,6 +51,7 @@ function solve() {
   }
   best = solutions[1].indexOf(Math.max(...solutions[1]))
   buttons.key.value(solutions[2][best]);
+  solution = step(buttons.key.value().split(","), columns).join("");
 }
 
 function drawUI() {
@@ -130,11 +131,10 @@ function draw() {
   drawUI();
   ciphertext = Array.from(buttons.input.value().toUpperCase());
   ciphertext = ciphertext.filter(v => alpha.includes(v)).join("");
-  keyLen = Number(buttons.len.value());
+  keyLen = isNaN(parseInt(buttons.len.value())) && 1 || parseInt(buttons.len.value());
   block = Math.floor(ciphertext.length/keyLen);
   columns = [];
   for (let i = 0; i < keyLen; i++) {
     columns.push(ciphertext.slice(block * i, block * (i + 1)));
   }
-  solution = step(buttons.key.value().split(","), columns).join("");
 }
